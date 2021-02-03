@@ -11,7 +11,7 @@
 let request = require("request");
 
 let reqObject = {
-    destination: "https://www.youtube.com/channel/UCHK4HD0ltu1-I212icLPt3g",
+    destination: "PUT_URL_HERE",
     domain: { fullName: "rebrand.ly" }
 }
 
