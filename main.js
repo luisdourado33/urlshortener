@@ -9,9 +9,10 @@
  */
 
 let request = require("request");
+const scope = require('./scope');
 
 let reqObject = {
-    destination: "PUT_URL_HERE",
+    destination: "https://music.youtube.com/watch?v=0tTn95TLIaw&list=RDAMVMUSo0sAaJKR0",
     domain: { fullName: "rebrand.ly" }
 }
 
@@ -27,5 +28,19 @@ request({
     headers: requestHeaders
 }, (err, response, body) => {
     let link = JSON.parse(body);
-    console.log(`Original URL: ${link.destination}\n\nURL shortened: ${link.shortUrl}`);
+
+    const originalUrl = `Original URL: ${link.destination}`
+    const callbackMessage = `URL shortened: ${link.shortUrl}`
+
+    /**
+     * Callback message
+     */
+
+    /**
+     * @function scopeStyle(scopeChar: string, originalUrl, callbackMessage)
+     * @param scopeChar defines what's character which will be shown 
+     *                  the message 
+     */
+    console.log(scope.scopeStyle('*', originalUrl, callbackMessage));
+
 })
