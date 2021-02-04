@@ -30,7 +30,7 @@ request({
     let link = JSON.parse(body);
 
     const originalUrl = `Original URL: ${link.destination}`
-    const callbackMessage = `URL shortened: ${link.shortUrl}`
+    const callbackMessage = `URL shortened: https://${link.shortUrl}`
 
     /**
      * Callback message
@@ -41,6 +41,5 @@ request({
      * @param scopeChar defines what's character which will be shown 
      *                  the message 
      */
-    console.log(scope.scopeStyle('*', originalUrl, callbackMessage));
-
+    console.log(scope.scopeStyle('/', originalUrl, callbackMessage));
 })

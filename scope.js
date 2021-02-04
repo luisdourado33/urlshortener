@@ -7,6 +7,7 @@
  * @return scopeStyle a scoped string
  */
 
+const colors = require('colors');
 const scopeStyle = (scopeCharacter, originalUrl, callbackMessage) => {
     let scopeStyle = "";
     for (let i = 1; i <= (originalUrl.length); i++) {
@@ -14,7 +15,11 @@ const scopeStyle = (scopeCharacter, originalUrl, callbackMessage) => {
     }
     scopeStyle = scopeStyle + scopeCharacter + scopeCharacter;
 
-    const toString = `${scopeStyle}\n* ${originalUrl}\n* ${callbackMessage}\n${scopeStyle}`;
+    const warnBadge = "[BE CAREFUL]".bgRed + " ";
+    callbackMessage = callbackMessage.bgGreen.black;
+
+    const warningMessage = warnBadge + "Don't use these shortened links to keep high-level \nsecurity information, it might be erased anytime.".red;
+    const toString = `${scopeStyle}\n${scopeCharacter}\n${scopeCharacter} ${warningMessage}\n${scopeCharacter}\n${scopeCharacter} ${originalUrl}\n${scopeCharacter} ${callbackMessage}\n${scopeCharacter}\n${scopeStyle}`;
     return toString;
 }
 
